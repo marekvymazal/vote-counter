@@ -1,0 +1,14 @@
+#holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
+#holder.hover { border: 10px dashed #333; }
+#results-container {
+    margin: 1rem;
+}
+.result-container {
+    margin:1rem;
+}
+#data-container {
+    margin: 1rem;
+}
+.result-category-header {
+    font-size: 1.25rem;
+}
