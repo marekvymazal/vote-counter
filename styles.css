@@ -1,5 +1,21 @@
-#holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
-#holder.hover { border: 10px dashed #333; }
+body {
+    font-family: sans-serif;
+}
+
+#instructions {
+    margin: 2em;
+}
+#holder {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border: 1em dashed lightgray;
+}
+#holder.hover {
+    border: 1em dashed black;
+}
 #results-container {
     margin: 1rem;
 }
@@ -11,4 +27,20 @@
 }
 .result-category-header {
     font-size: 1.25rem;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid gray;
+    text-align: center;
+}
+th, td {
+    padding: .25em;
+}
+
+.success {
+    color: green;
+}
+.fail {
+    color: red;
 }

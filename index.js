@@ -27,7 +27,7 @@ if (typeof window.FileReader === 'undefined') {
     state.className = 'fail';
 } else {
     state.className = 'success';
-    state.innerHTML = 'File API & FileReader available';
+    state.innerHTML = '✓ File API & FileReader available';
 }
 
 holder.ondragover = function() {
