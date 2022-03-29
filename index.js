@@ -7,6 +7,7 @@ var result_container = document.getElementById('results-container')
 
 var file_cnt = 0
 var max_results = 3
+var show_votes = false
 
 var category_results = {}
 var ids = []
@@ -44,6 +45,7 @@ holder.ondrop = function(e) {
     e.preventDefault();
 
     max_results = parseInt(document.getElementById('max-results').value)
+    show_votes = document.getElementById('show-votes').checked
     document.getElementById('settings').style.display = 'none'
     document.getElementById('holder').style.display = 'none'
     document.getElementById('instructions').style.display = 'none'
@@ -136,8 +138,7 @@ function update_results() {
         header.classList.add('result-category-header')
         header.innerText = key
 
-        // get top 3
-        let max = 3
+        // get top places
         let max_counts = []
         var key_list = []
 
@@ -163,7 +164,7 @@ function update_results() {
         for (let item of Object.keys(category_results[key])) {
             var val = category_results[key][item]
             let index = max_counts.indexOf(val)
-            key_list[index].push(item)
+            key_list[index].push({'name':item,'votes':val})
         }
 
         // show results for category
@@ -172,9 +173,23 @@ function update_results() {
 
         for (let i=0; i < max_results && i < max_counts.length; i++) {
 
-            let winners = key_list[i].join(', ')
+            let winners = []
+            for (winner of key_list[i]) {
+                let s = winner.name
+                if (show_votes) {
+                    if (winner.votes > 1) {
+                        s += ' ( ' + winner.votes + ' votes )'
+                    }
+                    else
+                    {
+                        s += ' ( ' + winner.votes + ' vote )'
+                    }
+                }
+                winners.push(s)
+            }
+            let winnerStr = winners.join(', ')
             let winnersDiv = document.createElement('div')
-            winnersDiv.innerText = place_str[i] + ': ' + winners
+            winnersDiv.innerText = place_str[i] + ': ' + winnerStr
             result_grp.appendChild(winnersDiv)
         }
     }
