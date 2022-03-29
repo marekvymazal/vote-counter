@@ -50,6 +50,10 @@ th, td {
 
 #settings {
     margin: 2rem;
+    padding: 1rem;
     position:relative;
     z-index:2;
+    display: inline-block;
+    background-color: lightyellow;
+    border-radius: 1rem;
 }
