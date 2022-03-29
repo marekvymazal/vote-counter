@@ -8,65 +8,73 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="instructions">
-        <h1>DRAG AND DROP CSV(s) HERE</h1>
-        <div>Refresh page to reset</div>
-        <h2>CSV Format</h2>
-        <table>
-          <tr>
-            <th>Ballot ID</th>
-            <th>Category A</th>
-            <th>Category B</th>
-            <th>Category C</th>
-            <th>...</th>
-          </tr>
-          <tr>
-            <td>unique_id</td>
-            <td>value</td>
-            <td>value</td>
-            <td>value</td>
-            <td>value</td>
-          </tr>
-          <tr>
-            <td>unique_id</td>
-            <td>value</td>
-            <td>value</td>
-            <td>value</td>
-            <td>value</td>
-          </tr>
-        </table>
+  <div id="holder"></div>
+  <div id="instructions">
+      <h1>DRAG AND DROP CSV(s) HERE</h1>
+      <div>Refresh page to reset</div>
+      <h2>CSV Format</h2>
+      <table>
+        <tr>
+          <th>Ballot ID</th>
+          <th>Category A</th>
+          <th>Category B</th>
+          <th>Category C</th>
+          <th>...</th>
+        </tr>
+        <tr>
+          <td>unique_id</td>
+          <td>value</td>
+          <td>value</td>
+          <td>value</td>
+          <td>value</td>
+        </tr>
+        <tr>
+          <td>unique_id</td>
+          <td>value</td>
+          <td>value</td>
+          <td>value</td>
+          <td>value</td>
+        </tr>
+      </table>
 
-        <h2>Example</h2>
-        <table>
-          <tr>
-            <th>Ballot ID</th>
-            <th>Best Paint</th>
-            <th>Best Hub Caps</th>
-            <th>Best Interior</th>
-          </tr>
-          <tr>
-            <td>10001</td>
-            <td>13</td>
-            <td>5</td>
-            <td>44</td>
-          </tr>
-          <tr>
-            <td>10002</td>
-            <td>9</td>
-            <td>18</td>
-            <td>23</td>
-          </tr>
-          <tr>
-            <td>10003</td>
-            <td>2</td>
-            <td>11</td>
-            <td>1</td>
-          </tr>
-        </table>
-        <!-- <button>Reset Data</button> -->
-        <div id="holder"></div> 
-        <p id="status">✖ File API & FileReader API not supported</p>
-    </div>
+      <h2>Example</h2>
+      <table>
+        <tr>
+          <th>Ballot ID</th>
+          <th>Best Paint</th>
+          <th>Best Hub Caps</th>
+          <th>Best Interior</th>
+        </tr>
+        <tr>
+          <td>10001</td>
+          <td>13</td>
+          <td>5</td>
+          <td>44</td>
+        </tr>
+        <tr>
+          <td>10002</td>
+          <td>9</td>
+          <td>18</td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <td>10003</td>
+          <td>2</td>
+          <td>11</td>
+          <td>1</td>
+        </tr>
+      </table>
+      <!-- <button>Reset Data</button> -->
+      
+      <p id="status">✖ File API & FileReader API not supported</p>
+      
+  </div>
+  
+  <div id="settings">
+    <h2>Settings</h2>
+    <label for="quantity">Max places:</label>
+    <input type="number" id="max-results" name="quantity" min="1" max="50" value="5">
+  </div>
   <div id="results-container"></div>
   <div id='data-container'></div>
   <script src="index.js"></script>

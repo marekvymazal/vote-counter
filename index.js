@@ -43,6 +43,11 @@ holder.ondrop = function(e) {
     this.className = '';
     e.preventDefault();
 
+    max_results = parseInt(document.getElementById('max-results').value)
+    document.getElementById('settings').style.display = 'none'
+    document.getElementById('holder').style.display = 'none'
+    document.getElementById('instructions').style.display = 'none'
+
     for (let file of e.dataTransfer.files) {
         console.log(file)
         reader = new FileReader();

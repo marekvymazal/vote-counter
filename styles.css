@@ -4,6 +4,8 @@ body {
 
 #instructions {
     margin: 2em;
+    position:relative;
+    z-index:0;
 }
 #holder {
     position: absolute;
@@ -12,6 +14,7 @@ body {
     left: 0px;
     right: 0px;
     border: 1em dashed lightgray;
+    z-index:1;
 }
 #holder.hover {
     border: 1em dashed black;
@@ -43,4 +46,10 @@ th, td {
 }
 .fail {
     color: red;
+}
+
+#settings {
+    margin: 2rem;
+    position:relative;
+    z-index:2;
 }
