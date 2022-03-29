@@ -9,6 +9,7 @@ var file_cnt = 0
 var max_results = 3
 
 var category_results = {}
+var ids = []
 
 var place_str = [
     '1st',
@@ -82,17 +83,34 @@ function processContents( file, contents ) {
     for (let line of lines) {
         var lineDiv = document.createElement('div')
         lineDiv.innerText = line
-        data_container.appendChild( lineDiv )
+        
 
         let parts = line.split(',')
+
+        var id = null
+        if (parts.length > 1) {
+            id = parts[0]
+        }
+
+        if (ids.includes(id)) {
+            continue;
+        }
+
+        data_container.appendChild( lineDiv )
+
+        ids.push(id)
+        
         for (let i=1; i < parts.length; i++) {
+            var item = parts[i].trim()
+            if (item == '') continue
+
             // add if doesn't exist
-            if (!(parts[i] in category_results[_categories[i-1]])) {
-                category_results[_categories[i-1]][parts[i]] = 0
+            if (!(item in category_results[_categories[i-1]])) {
+                category_results[_categories[i-1]][item] = 0
             }
 
             // add vote
-            category_results[_categories[i-1]][parts[i]] += 1
+            category_results[_categories[i-1]][item] += 1
         }
     }
 
@@ -120,7 +138,6 @@ function update_results() {
 
         for (let item of Object.keys(category_results[key])) {
             max_counts.push(category_results[key][item])
-            
         }
 
         // remove duplicates
